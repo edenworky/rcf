@@ -104,6 +104,7 @@ convenience, defaults to println outside of tests context."}
          (str/starts-with? (.getPath file) current-dir)))))
 
 (defmacro tests [& body]
+  {:style/indent 1}
   (let [body `(~@body nil) ; return nil like comment, unlike do
         name (gen-name &form)
         ns (if (:js-globals &env)
